@@ -1,0 +1,7 @@
+
+_ filezilla _
+
+Should be copied by ubDistBuild.exe installer to C:\core\installations .
+
+
+
