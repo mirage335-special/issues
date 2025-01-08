@@ -1,0 +1,10 @@
+
+_ issues repo _
+Info core directory with issues repo should now be included.
+
+
+
+
+
+
+
