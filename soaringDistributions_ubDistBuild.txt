@@ -7,3 +7,18 @@ Analysis showed missing binaries and missing packages, but docker-ce was apparen
 If this is an issue, then it could break  ubdist_dummy  , which relies on docker containers, etc.
 
 
+
+(filesystem)
+/bin/docker-proxy
+/bin/dockerd
+/bin/dockerd-rootless-setuptool.sh
+/bin/dockerd-rootless.sh
+
+/bin/rootlesskit-docker-proxy
+
+(dpkg)
+docker-buildx-plugin
+docker-ce-cli
+docker-ce-rootless-extras
+
+
