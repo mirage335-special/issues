@@ -1,6 +1,8 @@
 
 Basic issue tracker emphasizing portability, reliability, usability (ie. simplicity), and history, using git repository.
 
+Most often, issues tracked here will be 'PENDING' - issues which have been solved upstream (eg. "ubiquitous_bash"), but for which the corrections have not yet 'trickled down' to derivative products (eg. 'extendedInterface' installer, 'ubDistBuild' installer and ubdist/OS, etc).
+
 
 
 
