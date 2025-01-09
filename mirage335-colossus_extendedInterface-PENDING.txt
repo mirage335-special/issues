@@ -5,5 +5,7 @@ Info core directory and issues subdirectory repository should now be included.
 
 
 
+_  cosmetic error status _
 
+Starting _bash.bat may show an error status in the CLI prompt. Expected corrected by 'ubiquitous_bash' git commit '5b2953e9ef3466139ae9075c116532252924a993' .
 
