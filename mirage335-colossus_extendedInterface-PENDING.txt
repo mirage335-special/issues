@@ -9,3 +9,12 @@ _  cosmetic error status _
 
 Starting _bash.bat may show an error status in the CLI prompt. Expected corrected by 'ubiquitous_bash' git commit '5b2953e9ef3466139ae9075c116532252924a993' .
 
+
+_ _wsl function_
+
+from "ubiquitous_bash"
+'Correction - use built in wsl binary location overrides for  _wsl  and  u  .'
+'9fc746ec29f5747c7093615abd842c2ab61d1d3f'
+
+
+
