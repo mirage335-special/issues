@@ -1,7 +1,7 @@
 
 _  cosmetic error status _
 
-Starting _bash.bat may show an error status in the CLI prompt. Expected corrected by 'ubiquitous_bash' git commit '5b2953e9ef3466139ae9075c116532252924a993' .
+Starting _bash.bat may show an error status in the CLI prompt. Expected corrected by 'ubiquitous_bash' git commits '5b2953e9ef3466139ae9075c116532252924a993' , 'f21ef72e82e73a81acdb2281477e03f8f41f3bf4' .
 
 
 _ _wsl function_
