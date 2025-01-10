@@ -1,0 +1,15 @@
+
+_  cosmetic error status _
+
+Starting _bash.bat may show an error status in the CLI prompt. Expected corrected by 'ubiquitous_bash' git commits '5b2953e9ef3466139ae9075c116532252924a993' , 'f21ef72e82e73a81acdb2281477e03f8f41f3bf4' .
+
+Resolved.
+
+This is not merely annoying for two very important reasons.
+
+1) An initial prompt exit status of anything other than '0' can be understood as a very possible indicator of a very serious deviation in the environment created by anchor script, Cygwin/MSW environment, etc, which must be investigated. Mechanisms for this initialization must be very reslilient to cope with inheritance of previous shells, running the same functions both non/interactively, multi-platform use, and other very complicated yet more than everyday common situations.
+
+2) Words like 'error', or any number other than '0' in the exit status field, tend to stand out as these almost always correspond to such serious issues as failure to start a program at all, or compilation errors blocking the ability to run a program or whole dist/OS. It is indeed crucially important these remain visually salient indicators, standing out in pages of text without syntax highlighting, lest urgent maintenance and development timelines increase by a factor well above a few.
+
+
+
