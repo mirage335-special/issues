@@ -3,5 +3,8 @@ _ filezilla _
 
 Should be copied by ubDistBuild.exe installer to C:\core\installations .
 
+_ kernel _
 
+Kernel names absolutely should have local version.
 
+Kernel config should now exist at /lib/modules/<kernel>/build/.config for DKMS .
