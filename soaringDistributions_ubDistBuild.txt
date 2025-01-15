@@ -1,6 +1,4 @@
 
-_ Analysis _
 
-Filter out '_local/h' or similar from analysis. Applications using 'fakeHome' have a symlink to the home directory, causing the 'core' analysis to report a lot of irrelevant changes from the actual user home directory.
 
 

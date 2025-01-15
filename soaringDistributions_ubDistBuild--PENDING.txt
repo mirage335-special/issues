@@ -8,3 +8,46 @@ _ kernel _
 Kernel names absolutely should have local version.
 
 Kernel config should now exist at /lib/modules/<kernel>/build/.config for DKMS .
+
+
+
+_ upgrade runner _
+
+scribe '/info-github-upgrade'
+
+DISABLE_RELEASE - Ensure workflow steps (including all hashing) are correctly disabled (or remain enabled), for fast and correct work and analysis.
+
+
+kernel should be upgraded from 6.12.8 to 6.12.9, stock kernels should be removed
+
+apt upgrades should have taken effect - there should be no upgrades available
+
+preliminary gpd driver structure should be present (and hopefully... kernel module should be capable of fan control... shell script fan control close to working... temperature detection/control can be corrected in shell script...)
+
+kde package upgrade should not have caused any issues...
+
+upgrade_installers - MSW exe installers, if present, should be upgraded
+
+
+
+_ custom runner _
+
+scribe '/info-github-custom'
+ with build_DANGERfast_EXPERIMENT ... if that was used
+
+DISABLE_RELEASE - Ensure workflow steps (including all hashing) are correctly disabled (or remain enabled), for fast and correct work and analysis.
+
+DANGERfast_EXPERIMENT - Skips all hashing steps. Renames tag accordingly.
+
+customReport, cronUserReport, cronRootReport
+
+upgrade_installers - MSW exe installers, if present, should be upgraded
+
+
+
+
+
+
+
+
+
