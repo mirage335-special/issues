@@ -1,0 +1,8 @@
+
+_ Kernel Headers Permissions/Owners _
+
+Linux kernel headers under /usr/src and available through /lib/modules ... apparently are owned by 'brig:docker' . A corresponding chown command in puddleJumper scripts does not seem to exist, suggesting this results from building the Debian kernel packages with non-root user.
+
+TODO: mirage335KernelBuild ... GitHub Actions workflow ... root kernel package build?
+
+
