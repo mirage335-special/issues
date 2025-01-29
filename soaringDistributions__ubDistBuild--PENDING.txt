@@ -1,0 +1,18 @@
+
+_ filezilla _
+
+Should be copied by ubDistBuild.exe installer to C:\core\installations .
+
+
+_ custom runner _
+
+upgrade_installers - MSW exe installers, if present, should be upgraded
+
+
+_ kernel _
+
+All kernels, both lts/desktop and mainline/server, etc, should now be 6.12.11 . Check has passed, compile commands for builds were run through Docker Debian Bookworm toolchain, there should be no compatibility issues.
+
+
+
+
