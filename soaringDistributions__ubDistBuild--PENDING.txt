@@ -16,3 +16,29 @@ All kernels, both lts/desktop and mainline/server, etc, should now be 6.12.11 . 
 
 
 
+
+_ from ubDistFetch _
+
+_ubDistFetch_gitBestFetch_github_distllc "$scriptLib"/core/installations getHardware-CoralTPU
+ ! [[ -e /home/user/core/installations/getHardware-CoralTPU ]] || ! "$scriptAbsoluteLocation" _upgrade_repository /home/user/core/installations/getHardware-CoralTPU
+ _ubDistFetch_gitBestFetch_github_distllc /home/user/core/installations/getHardware-CoralTPU
+
+_ubDistFetch_gitBestFetch_github_mirage335 "$scriptLib"/core/installations freecad-converter
+ _upgrade_repository /home/user/core/installations/freecad-converter
+
+_ubDistFetch_gitBestFetch_github_mirage335 "$scriptLib"/core/infrastructure AppImages_ubiquitous
+ _upgrade_repository /home/user/core/infrastructure/AppImages_ubiquitous
+
+_ubDistFetch_gitBestFetch_github_mirage335 "$scriptLib"/core/infrastructure wirewrap_huge
+
+_ubDistFetch_gitBestFetch_github_mirage335 "$scriptLib"/core/infrastructure SuperhetPlanner
+ _upgrade_repository /home/user/core/infrastructure/SuperhetPlanner
+
+_ubDistFetch_gitBestFetch_github_mirage335 "$scriptLib"/core/infrastructure SystemTemplate
+ _upgrade_repository /home/user/core/infrastructure/SystemTemplate
+
+
+
+
+
+
