@@ -1,4 +1,14 @@
 
+_ locale config on first boot _
 
+Some applications, including 'k3b' may show cosmetic errors, possibly or not, due to the locale having been configured within a chroot .
+
+Adding locale config command to the first boot commands (ie. to run within qemu) may or may not resolve such errors.
+
+Then again, this may be a very bad idea:
+*) Only 'k3b' is known to show this error, with zero expected impactful issues as a result.
+*) Configuration of locale is known to present the possibility of serious issues with at least gEDA/gschem/gsch2pcb/pcb , FreeCAD , AppImage , Nix package manager and Nix installed packages, etc.
+
+Thus, this is NOT A PRIORITY, and changes will NOT be implemented until sufficient time and opportunity is available to adequately test for any possible consequences.
 
 
