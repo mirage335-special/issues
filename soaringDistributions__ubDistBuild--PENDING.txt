@@ -9,16 +9,6 @@ _ custom runner _
 upgrade_installers - MSW exe installers, if present, should be upgraded
 
 
-_ kernel _
-
-All kernels, both lts/desktop and mainline/server, etc, should now be 6.12.11 . Check has passed, compile commands for builds were run through Docker Debian Bookworm toolchain, there should be no compatibility issues.
-
-
-_ from ubiquitous_bash - researchEngine _
-
-_upgrade_researchEngine
-_upgrade_researchEngine-nvidia
-
 
 _ from ubiquitous_bash - ingredients _
 
@@ -32,89 +22,6 @@ _set_ingredients
 
 	#_set_ingredients &&
 	mountpoint "$absolute1"/mnt/ingredients > /dev/null 2>&1 && _wait_umount "$absolute1"/mnt/ingredients
-
-
-_ curlftpfs _
-/curlftpfs_0.9.2-9+b1_amd64.deb
-
-dpkg -l | grep curlftpfs
-
-
-_ from ubiquitous_bash - curlftpfs _
-
-    if _getMost_backend_fileExists "/curlftpfs_0.9.2-9+b1_amd64.deb"
-    then
-        _getMost_backend dpkg -i "/curlftpfs_0.9.2-9+b1_amd64.deb"
-        _getMost_backend rm -f "/curlftpfs_0.9.2-9+b1_amd64.deb"
-        _getMost_backend env DEBIAN_FRONTEND=noninteractive apt-get install -y -f
-    fi
-
-    _getMost_backend_aptGetInstall curlftpfs
-
-
-_getDep curlftpfs
-
-
-	if [[ "$1" == "curlftpfs" ]]
-	then
-		if [[ -e "$HOME"/"core/installations/curlftpfs/curlftpfs_0.9.2-9+b1_amd64.deb" ]]
-		then
-			yes | sudo -n dpkg -i "$HOME"/"core/installations/curlftpfs/curlftpfs_0.9.2-9+b1_amd64.deb"
-		fi
-
-		if ! [[ -e "$HOME"/"core/installations/curlftpfs/curlftpfs_0.9.2-9+b1_amd64.deb" ]]
-		then
-			curl -L 'http://deb.debian.org/debian/pool/main/c/curlftpfs/curlftpfs_0.9.2-9+b1_amd64.deb' -o "$safeTmp"/"curlftpfs_0.9.2-9+b1_amd64.deb"
-			yes | sudo -n dpkg -i "$safeTmp"/"curlftpfs_0.9.2-9+b1_amd64.deb"
-		fi
-
-		sudo -n env DEBIAN_FRONTEND=noninteractive apt-get install --install-recommends -y -f
-		sudo -n rm -f "$safeTmp"/"curlftpfs_0.9.2-9+b1_amd64.deb"
-
-		sudo -n env DEBIAN_FRONTEND=noninteractive apt-get install --install-recommends -y curlftpfs
-	fi
-
-
-
-_ from ubDistFetch - special Debian packages _
-"$HOME"/core/installations/curlftpfs
-"$HOME"/"core/installations/curlftpfs/curlftpfs_0.9.2-9+b1_amd64.deb"
-
-
-_ from ubDistFetch _
-
-_ubDistFetch_gitBestFetch_github_distllc "$scriptLib"/core/installations getHardware-CoralTPU
- ! [[ -e /home/user/core/installations/getHardware-CoralTPU ]] || ! "$scriptAbsoluteLocation" _upgrade_repository /home/user/core/installations/getHardware-CoralTPU
- _ubDistFetch_gitBestFetch_github_distllc /home/user/core/installations/getHardware-CoralTPU
-
-_ubDistFetch_gitBestFetch_github_mirage335 "$scriptLib"/core/installations freecad-converter
- _upgrade_repository /home/user/core/installations/freecad-converter
-
-_ubDistFetch_gitBestFetch_github_mirage335 "$scriptLib"/core/infrastructure AppImages_ubiquitous
- _upgrade_repository /home/user/core/infrastructure/AppImages_ubiquitous
-
-_ubDistFetch_gitBestFetch_github_mirage335 "$scriptLib"/core/infrastructure wirewrap_huge
-
-_ubDistFetch_gitBestFetch_github_mirage335 "$scriptLib"/core/infrastructure SuperhetPlanner
- _upgrade_repository /home/user/core/infrastructure/SuperhetPlanner
-
-_ubDistFetch_gitBestFetch_github_mirage335 "$scriptLib"/core/infrastructure SystemTemplate
- _upgrade_repository /home/user/core/infrastructure/SystemTemplate
-
-
-
-
-_ correction - chroot test _
-
-	git diff -p | awk '
-	  /^diff --git/ { diff = $0; next }
-	  /^old mode/   { old_mode = $0; next }
-	  /^new mode/   { new_mode = $0;
-	                  print diff;
-	                  print old_mode;
-	                  print new_mode;
-	                }' | sed -e 's/^old/NEW/;s/^new/old/;s/^NEW/new/' | tee /dev/stdout > "$safeTmp"/patch.txt
-    cat "$safeTmp"/patch.txt | git apply
 
 
 

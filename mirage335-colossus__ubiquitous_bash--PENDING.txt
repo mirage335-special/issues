@@ -4,3 +4,7 @@ _ _wget_githubRelease_join-stdout _
 Completely refactored.
 
 
+_ _setup_ollama cosmetic error _
+
+Next version of extendedInterface 'ubcp' should not show a cosmetic error when running '_setup_ollama' to install Llama-augment model.
+
