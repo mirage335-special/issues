@@ -1,4 +1,9 @@
 
+_ aa_DAMAGE_CONTROL _
+
+All ubdist/OS builds should now always have the aa_DAMAGE_CONTROL at "$HOME"/core/info/aa_DAMAGE_CONTROL .
+
+
 _ filezilla _
 
 Should be copied by ubDistBuild.exe installer to C:\core\installations .
