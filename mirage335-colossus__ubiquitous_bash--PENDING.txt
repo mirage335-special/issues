@@ -18,6 +18,16 @@ Prevent very broken sub/process termination affecting the download, filesystem t
 
 
 
+
+
+_ gitBest detect ssh backend _
+
+Disabled existence of '.ssh/config' as cause for accepting 'ssh' backend for gitBest detect . Use of '_gitBest' itself negates need for this with such sources as github.com .
+# || [[ -e "$HOME"/.ssh/config ]]
+
+
+
+
 _ _setup_ollama cosmetic error _
 
 Next version of extendedInterface 'ubcp' should not show a cosmetic error when running '_setup_ollama' to install Llama-augment model.
