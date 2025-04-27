@@ -4,7 +4,206 @@ _ _wget_githubRelease_join-stdout _
 Completely refactored.
 
 
+
+_ _gh_download _
+
+_destroy_lock
+
+
+
+_ _wget_githubRelease_procedure-axel _
+
+Prevent very broken sub/process termination affecting the download, filesystem temporary file inter-process communication, etc. Do not pipe directly to tail standard out ... temporary "$currentOutFile".log .
+
+
+
+
 _ _setup_ollama cosmetic error _
 
 Next version of extendedInterface 'ubcp' should not show a cosmetic error when running '_setup_ollama' to install Llama-augment model.
+
+
+
+
+
+_ ubcp - packages _
+
+multiple 'python-devel' and 'pythonVersion-devel' packages have been added... must ensure other packages are not missing as a result... command line parameter count length affecting Cygwin installer...
+
+
+
+
+
+_ ubcp - pip _
+
+  echo  apt-cyg install python$(python3 -c "import sys, os; print(f'{sys.version_info.major}{sys.version_info.minor}')"^)-devel
+  echo  pip3 install -vvv --no-input --no-build-isolation -U "readline" ^< /dev/null
+  echo  pip3 install -vvv --no-input --no-build-isolation -U "colorama" ^< /dev/null
+
+echo  pip3 install -vvv --no-input --no-build-isolation -U "huggingface_hub[cli]" ^< /dev/null
+
+
+Seems the batch commands can be tested:
+(
+  echo apt-cyg install python$(python3 -c "import sys, os; print(f'{sys.version_info.major}{sys.version_info.minor}')"^)-devel
+) > test.txt
+type test.txt
+
+
+
+
+
+_ _if_cygwin _
+
+quietly fail safe to assume UNIX/Linux
+
+
+
+
+
+_ certificates _
+
+_setupUbiquitous_root.sh ... _install_certs
+
+certs copied to root filesystem of 'ubcp' and any root filesystem _setupUbuquitous is run under (ie. 'ubdist/OS') , then installed ... _install_certs function ...
+
+
+
+
+
+_ setupUbiquitous _
+
+git submodule update ...
+
+copy certs from "$scriptAbsoluteFolder"/_lib/kit/app/researchEngine/kit/certs/*
+
+
+
+
+
+_ _setupUbiquitous_accessories , _setupUbiquitous_accessories_here-python_bashrc , _setupUbiquitous_accessories_here-python_hook _
+
+Most important change is _set_msw_python_procedure if $_PATH_pythonDir is already set .
+
+
+
+# Interactive bash shell will default to calling 'python3' while scripts invoking '#! /usr/bin/env python' or similar may still be given 'python2' equivalent.
+[[ "\$_PATH_pythonDir" == "" ]] && alias python=python3
+
+[[ "\$_PATH_pythonDir" == "" ]] && [[ "\$_PYTHONSTARTUP" == "" ]] && export PYTHONSTARTUP="$HOME"/.pythonrc
+
+[[ "\$_PATH_pythonDir" != "" ]] && _set_msw_python_procedure
+
+
+...
+
+
+from ubcore_ubcorerc_pythonrc
+
+
+
+
+
+_ _lib/.python_wheels _
+
+Additional git submodule , esential python/pip install 'wheels' (mostly to get readline, pyreadline3, colorama, etc) . Unusually, these may be more reasonable to install globablly (instead of and/or in addition to just to a venv) .
+
+
+
+
+
+
+_ virtualization/python _
+
+_nix_python
+_msw_python
+_cygwin_python
+
+_special_python
+
+
+
+Begin with the README in case of issues . May not be adequately tested.
+
+Functions to actually run python and manage relevant environments may be corrected without requiring dist/OS changes/rebuilds, etc, (ie. rebuilds of 'ubdist/OS', 'ubcp') .
+
+Functions dealing with the inheritance issues (ie. ubcore hook, python hook py scripts...  [[ "\$_PATH_pythonDir" != "" ]] && _set_msw_python_procedure  ) ... are NOT local to 'venv' or forked 'ubiquitous_bash' projects... will require dist/OS changes/rebuilds .
+
+
+
+lock file used by relevant _prepare functions has been tested
+
+
+
+pip download ... as used within '_prepare' functions ... avoids excessive delays using 'wget' detection of internet availability
+
+
+
+
+
+
+_ visualPrompt _
+
+VIRTUAL_ENV_PROMPT ...
+
+
+
+
+_ lean.py _
+
+interactive parameter for _bin , _bash
+
+current_ubiquitous_bash ... paths added ... scriptCall_bash_msw , etc
+
+logic ... stdout=subprocess.PIPE
+
+ignore   _bin _bin  ,  _bash _bash
+
+logic ... try ... readline ... pyreadline3 ... if use_colorama
+
+sys.ps1, sys.ps2 ...
+ VIRTUAL_ENV_PROMPT ... MSWindows Native , UNIX/Linux , etc
+ echo 'ctrl+d twice'
+ ubPythonPS1 ...
+
+
+
+
+_ dumbpath _
+
+Detect change of the absolute path used for 'venv' and other purposes.
+
+
+
+
+_ GIT_CEILING_DIRECTORIES _
+
+Prevents native 'git' from using directory outside the 'ubcp' 'Cygwin' root filesystem (ie. 'C:\.git' is NOT something git should use for '/cygdrive/c/p/_pgnd' just because a native MSWindows git binary is running in a context to see 'C:\.git' ) .
+
+
+
+
+_ _write_configure_git_safe_directory_if_admin_owned _
+
+Automatically reconfigure 'global' '.gitconfig' with 'safe' directory paths in both MSWindows and UNIX/Linux, etc, format, if directory is owned by MSWindows 'Administrator' . This happens to git repositories unpacked from 'extIface.exe' , 'ubDistBuild.exe' , etc , installers .
+
+
+
+
+
+_ semanticAssist _
+
+Adds comments to keywords to code at function declarations and regular intervals to create 'knowledge' useful for AI Retrieval-Augmented-Generation (RAG) .
+
+
+
+
+
+_ terminateAll _
+
+Avoids 'tmpSelf' directory not existing due to '_start' not having already been called when this function is used by an end-user in a relevant situation (eg. WSL... "$tmpSelf" != "$scriptAbsoluteFolder" ) to terminate all processes owned by the script in the same directory .
+
+Other uses of "$tmpSelf" if not always used within '_start', '_stop', may need similar workaround, renaming to 'procedure' functions, etc.
+
+
 

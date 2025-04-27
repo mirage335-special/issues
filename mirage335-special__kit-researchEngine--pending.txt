@@ -1,0 +1,50 @@
+
+_ kit ... setup ... -user ... _
+
+Minor changes towards getting the setup functions to replace manual setup for MSWindows installation... this has become desirable since otherwise certs would now require calling an '_upgrade' function to install in MSWindows after doing mostly the same setup (ie. install) manually...
+
+
+
+
+	_set_researchEngine
+
+	_messagePlain_nominal 'SearXNG: copy patch'
+
+	! _if_cygwin && _mustGetSudo
+
+	#mkdir -p "$HOME"/core/data/searxng
+	mkdir -p "$ub_researchEngine_data"searxng
+
+	mkdir -p "$ub_researchEngine_data"certs
+	cp -f "$kit_dir_researchEngine"/kit/certs/*.crt "$ub_researchEngine_data"certs/
+
+	#cp "$kit_dir_researchEngine"/_import/etc--searxng/settings.yml.patch "$HOME"/core/data/searxng/
+	cp "$kit_dir_researchEngine"/_import/etc--searxng/settings.yml.patch "$ub_researchEngine_data"searxng/
+
+	docker rm -f searxng
+
+	_messagePlain_nominal 'SearXNG: docker'
+	# TODO: Attempt to pull from 'ingredients'.
+	_set_ingredients
+	docker pull searxng/searxng:latest
+
+
+
+
+
+
+
+
+
+
+
+_ kit ... docker run _
+
+Especially, the changes to these commands must not cause issues with installation in 'dummy' 'ubdist/OS' derivative .
+
+
+._run.sh ...
+
+-v "$ub_researchEngine_data_docker"certs:/usr/local/share/ca-certificates:ro ...
+
+
