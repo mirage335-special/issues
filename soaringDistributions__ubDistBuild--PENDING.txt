@@ -1,4 +1,14 @@
 
+_ huggingface_cli _
+
+#from ubCoreFetch
+_ubDistFetch_gitBestFetch_github_mirage335 "$scriptLib"/core/installations huggingface_cli
+_upgrade_repository /home/user/core/installations/huggingface_cli
+
+_chroot sudo -n -u user bash -c 'cd /home/user/core/installations/huggingface_cli ; chmod 755 ./ubiquitous_bash.sh ; ./ubiquitous_bash.sh _huggingface_cli -h'
+
+
+
 _ aa_DAMAGE_CONTROL _
 
 All ubdist/OS builds should now always have the aa_DAMAGE_CONTROL at "$HOME"/core/info/aa_DAMAGE_CONTROL .
