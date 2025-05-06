@@ -233,5 +233,17 @@ factory ops ...
 
 
 
+_ setup ... service ... vector ... ollama _
+
+Calling '_l' and similar functions will now cause ollama service to start if not already running in the background, and will download the 'Llama-augment' model if not already present. This will affect '_vector' tests of the 'Llama-augment' model, ollama itself, etc. If the conditionals or procedures are incorrect, or incompatible with a limited CI/chroot/container environment... then inappropriate failures may be possible, causing builds that previously did not fail, and previously resulted in a correct dist/OS including both ollama and 'Llama-augment' properly installed... possible fail...
+
+
+
+
+
+
+
+
+
 
 
