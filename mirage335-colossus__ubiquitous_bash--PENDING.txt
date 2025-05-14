@@ -242,6 +242,18 @@ Calling '_l' and similar functions will now cause ollama service to start if not
 
 
 
+_ _setupUbiquitous_accessories_here-container_environment _
+
+Writes '$SSH_pub_Coordinator_01' and similar variables to ~/.ssh/authorized_keys , to add another way of enabling Coordinator/Worker SSH command workflows ... particularly for Docker container environments where ubDistBuild derivitives, cloud-init, etc, might be more difficult.
+
+
+
+
+
+_ rclone _
+
+Utility 'rclone' has once again become important, as this can be used by a call from a not-quite-puddleJumper as a 'coordinator' (ie. 'Coordinator/Worker') through SSH to cause a sync (at least in theory) in either direction with the current password (ie from a 'live' puddleJumper dist/OS), the correct directory... from a script... basically 'rclone' might be used with 'vsftpd' merely to bypass the very slow performance of SSH/rsync .
+
 
 
 
