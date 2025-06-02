@@ -276,6 +276,6 @@ _ wsl2 config _
 
 nested virtualization is no longer explicitly specified in any wsl configuration files, and would be more appropriate in a different wsl configuration file than was previously used
 
-
+explicitly disabled appendWindowsPath in wsl.conf (for ubdist) ... bringing the full MSWindows path into ubdist is expected to have always been very highly undesirable... though it might be useful to bring some specific programs such as git/ssh from Cygwin/MSWindows ...
 
 
