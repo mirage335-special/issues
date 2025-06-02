@@ -41,18 +41,32 @@ _set_ingredients
 
 
 
+_ ollama ls  during install _
+
+May now call 'ollama ls' to start ollama . Should not, but may, cause installer not to close, or installer may close the ollama instance that was started as a result.
+
+
+
+_ ollama  port conflict _
+
+If  ollama  is not available when the installer is run, but is installed subsequently, then a reboot may be required before ollama will be able to bind to the localhost/port as usual, due to the port forwarding itself occupying a port if already running before  ollama  .
+
+
+_ ollama  rootfs disable _
+
+ollama service is disabled, stopped, etc, both from ChRoot, and during install of the wsl vm (ie. wsl guest)
+
+if this is not disabled as expected and without errors, build failures, installation failures, and conflicts with MSWindows host  ollama  service may occur
 
 
 
 
+_ codex , npm _
+
+codex , npm, possibly also claude code  ... should now be installed with ubdist/OS
 
 
-
-
-
-
-
-
+this is implemented through ubiquitous_bash 'dev ai' and also through additions to 'rotten_install'
 
 
 

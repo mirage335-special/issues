@@ -257,5 +257,25 @@ Utility 'rclone' has once again become important, as this can be used by a call 
 
 
 
+_ dev ai , rotten_install _
+
+rotten_install now installs codex , claude_code
+
+
+
+
+
+_ factory  NVIDIA/bpf_jit_harden  compatibility _
+
+commands to run every factory now include hopefully workarounds for  NVIDIA/bpf_jit_harden  compatibility issues
+
+
+
+
+_ wsl2 config _
+
+nested virtualization is no longer explicitly specified in any wsl configuration files, and would be more appropriate in a different wsl configuration file than was previously used
+
+
 
 
