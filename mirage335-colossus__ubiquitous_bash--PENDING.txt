@@ -246,6 +246,10 @@ _ _setupUbiquitous_accessories_here-container_environment _
 
 Writes '$SSH_pub_Coordinator_01' and similar variables to ~/.ssh/authorized_keys , to add another way of enabling Coordinator/Worker SSH command workflows ... particularly for Docker container environments where ubDistBuild derivitives, cloud-init, etc, might be more difficult.
 
+Permissions are now set on some ~/.ssh directories, files, etc.
+
+chown "$USER" "$HOME"/.ssh 2> /dev/null
+
 
 
 
